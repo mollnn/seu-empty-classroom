@@ -78,9 +78,9 @@ struct Record
         }
     }
 
-    bool Compare(int q_day, int q_sec)
+    bool Compare(int q_day, int q_secl, int q_secr)
     {
-        if (daynames[q_day] == day && sec_min <= q_sec && q_sec <= sec_max)
+        if (daynames[q_day] == day && !(q_secl > sec_max || q_secr < sec_min))
             return true;
         return false;
     }
@@ -131,17 +131,17 @@ signed main()
 
     while (true)
     {
-        cout << "Enter two numbers: day and section (day -1 to exit)" << endl;
-        int day, sec;
+        cout << "Enter three numbers: day and section min/max (day -1 to exit)" << endl;
+        int day, secl, secr;
         cin >> day;
         if (day == -1)
             return 0;
-        cin >> sec;
+        cin >> secl >> secr;
         cout << "--- Busy classroom list ---" << endl;
         vector<Record> ans;
         for (auto record : records)
         {
-            if (record.Compare(day, sec))
+            if (record.Compare(day, secl, secr))
             {
                 ans.push_back(record);
             }
