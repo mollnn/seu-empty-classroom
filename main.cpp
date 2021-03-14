@@ -137,7 +137,6 @@ signed main()
         if (day == -1)
             return 0;
         cin >> secl >> secr;
-        cout << "--- Busy classroom list ---" << endl;
         vector<Record> ans;
         for (auto record : records)
         {
@@ -156,15 +155,26 @@ signed main()
         {
             auto x = tmp.first;
             auto y = tmp.second;
-            set<string> z;
-            auto tmpvec = SplitString(y, ';');
-            for (auto i : tmpvec)
-                z.insert(i);
-            cout << x << "\t\t";
-            for (auto i : z)
-                cout << i << " ";
-            cout << endl;
+            if (x.length() == 0)
+                continue;
+            if (y.length() == 0)
+                cout << x << endl;
         }
+        // for (auto tmp : result)
+        // {
+        //     auto x = tmp.first;
+        //     auto y = tmp.second;
+        //     if (x.length() == 0)
+        //         continue;
+        //     set<string> z;
+        //     auto tmpvec = SplitString(y, ';');
+        //     for (auto i : tmpvec)
+        //         z.insert(i);
+        //     cout << x << "\t\t";
+        //     for (auto i : z)
+        //         cout << i << " ";
+        //     cout << endl;
+        // }
     }
 
     return 0;
