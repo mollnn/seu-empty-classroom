@@ -158,8 +158,10 @@ signed main()
             if (x.length() == 0)
                 continue;
             if (y.length() == 0)
-                cout << x << endl;
+                cout << x << "\t";
         }
+        cout << endl;
+
         // for (auto tmp : result)
         // {
         //     auto x = tmp.first;
